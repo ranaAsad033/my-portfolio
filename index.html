@@ -1,0 +1,238 @@
+<!--
+Single-file Portfolio Website for: Rana Asad
+How to use:
+1. Copy this file and save as `index.html`.
+2. Replace text and image placeholders with your own content.
+3. Open `index.html` in any browser to preview.
+
+Features:
+- Responsive layout (desktop/mobile)
+- Hero section with CTA
+- Services (Graphic + Web)
+- Portfolio gallery (replace images)
+- Pricing / Packages (editable)
+- Contact section with mailto link and copyable WhatsApp link
+- Clean, minimal, modern aesthetic
+
+You can customize colors, fonts and images as needed.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rana Asad — Portfolio</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#ff6b6b; --muted:#94a3b8; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px; --radius:12px; --gap:18px; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071124 0%, #0b1220 100%);color:#e6eef8;line-height:1.5}
+    .container{max-width:var(--maxw);margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#ff9f43);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .logo span{font-size:20px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center;margin-top:28px}
+    .card{background:var(--card);padding:22px;border-radius:14px;box-shadow:0 6px 25px rgba(2,6,23,0.6)}
+    h1{margin:0;font-size:34px}
+    p.lead{color:var(--muted);margin-top:10px}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:10px 16px;border-radius:10px;text-decoration:none;display:inline-block}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff9f43);color:#071124}
+    .btn-light{background:var(--glass);color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+
+    /* profile card */
+    .profile{display:flex;flex-direction:column;gap:12px}
+    .avatar{width:100%;height:260px;border-radius:10px;background:linear-gradient(180deg,#111827,#0b1220);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+    .small{font-size:14px;color:var(--muted)}
+
+    /* services */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:22px}
+    .service{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
+    .service h4{margin:8px 0 6px}
+    .tags{color:var(--muted);font-size:13px}
+
+    /* portfolio */
+    .portfolio{margin-top:28px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .proj{height:160px;border-radius:10px;overflow:hidden;background:#061124;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+    footer{margin-top:40px;padding:18px;border-radius:10px;background:transparent;display:flex;align-items:center;justify-content:space-between}
+
+    /* responsive */
+    @media(max-width:980px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}.portfolio-grid{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:560px){.grid{grid-template-columns:1fr}.portfolio-grid{grid-template-columns:1fr}.header-right{display:none}.container{padding:16px;margin:18px auto}}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px}
+
+    /* contact */
+    .contact{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:22px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><span>RA</span></div>
+        <div>
+          <div style="font-weight:700">Rana Asad</div>
+          <div class="small muted">Graphic Designer & Web Developer</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <nav>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h1>Hi, I’m <span style="color:var(--accent)">Rana Asad</span><br><small class="small muted">I design brands & build websites</small></h1>
+          <p class="lead">Professional Graphic Designer and WordPress developer — I make clean visuals and responsive websites that help businesses grow online.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#contact">Hire Me</a>
+            <a class="btn btn-light" href="#portfolio">View Work</a>
+          </div>
+
+          <div class="grid" id="services">
+            <div class="service">
+              <div class="chip">Graphic Design</div>
+              <h4>Logo & Branding</h4>
+              <div class="tags">Logo, Brand Kit, Social Media Assets</div>
+            </div>
+            <div class="service">
+              <div class="chip">Web</div>
+              <h4>WordPress & Landing Pages</h4>
+              <div class="tags">Elementor, Responsive, E-commerce</div>
+            </div>
+            <div class="service">
+              <div class="chip">Visuals</div>
+              <h4>YouTube & Social Thumbnails</h4>
+              <div class="tags">Thumbnails, Posters, Banners</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <aside class="profile card">
+        <div class="avatar">Replace this with your photo or sample artwork.</div>
+        <div style="display:flex;justify-content:space-between;gap:12px">
+          <div>
+            <div style="font-weight:700">Availability</div>
+            <div class="small muted">Part-time / Freelance</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700">Rate</div>
+            <div class="small muted">Logo $20 • Website $80+</div>
+          </div>
+        </div>
+
+        <div style="margin-top:8px">
+          <div class="small muted">Skills</div>
+          <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap">
+            <div class="chip">Photoshop</div>
+            <div class="chip">Illustrator</div>
+            <div class="chip">Figma</div>
+            <div class="chip">WordPress</div>
+            <div class="chip">HTML/CSS</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <h3>Portfolio</h3>
+      <p class="muted">Some of my recent work. Replace images with your own projects.</p>
+      <div class="portfolio-grid">
+        <div class="proj">Logo — Project 1</div>
+        <div class="proj">Thumbnail — Project 2</div>
+        <div class="proj">Website — Project 3</div>
+        <div class="proj">Poster — Project 4</div>
+        <div class="proj">Branding — Project 5</div>
+        <div class="proj">UI Design — Project 6</div>
+      </div>
+    </section>
+
+    <section id="pricing" style="margin-top:28px">
+      <h3>Pricing Packages</h3>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Starter</h4>
+          <div class="muted">Logo + 2 Social Posts</div>
+          <div style="margin-top:10px;font-weight:700">$25</div>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Business</h4>
+          <div class="muted">Branding + Landing Page</div>
+          <div style="margin-top:10px;font-weight:700">$120</div>
+        </div>
+        <div class="card" style="flex:1;min-width:220px">
+          <h4>Premium</h4>
+          <div class="muted">Full Website + Social Kit</div>
+          <div style="margin-top:10px;font-weight:700">$300+</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="card">
+        <h3>Contact Me</h3>
+        <p class="muted">Send a message and I'll reply within 24 hours.</p>
+        <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+          <div class="field">
+            <label class="small muted">Your name</label>
+            <input type="text" name="name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label class="small muted">Email or WhatsApp</label>
+            <input type="text" name="email" placeholder="Email or +92...">
+          </div>
+          <div class="field">
+            <label class="small muted">Message</label>
+            <textarea name="message" rows="4" placeholder="Tell me about your project"></textarea>
+          </div>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <a class="btn btn-light" href="https://wa.me/923001234567" target="_blank">WhatsApp</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h4>Quick Contact</h4>
+        <p class="muted">Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p class="muted">Discord: <span style="font-weight:700">Rana#1234</span></p>
+        <p class="muted">Instagram: <span style="font-weight:700">@yourhandle</span></p>
+        <div style="margin-top:12px">
+          <div class="small muted">Location</div>
+          <div>Pakistan</div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div class="small muted">© <span id="year"></span> Rana Asad — Portfolio</div>
+      <div class="small muted">Built with care • Responsive</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
